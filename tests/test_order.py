@@ -23,13 +23,8 @@ def test_sorted_jsonl_file():
         target="logs/merged_logs.jsonl",
     )
 
-    # Define the path to the JSONL file to test
-    file_path = "logs/merged_logs.jsonl"
-
-    # Iterate over the file in chunks and check that each chunk is sorted by timestamp
     prev_timestamp = None
-    with open(file_path, "r", encoding="utf-8") as f:
-        # Check that the logs in this chunk are sorted in ascending order by timestamp
+    with open("logs/merged_logs.jsonl", "r", encoding="utf-8") as f:
         for log in read_lines(f):
             timestamp = datetime.strptime(log["timestamp"], "%Y-%m-%d %H:%M:%S")
             if prev_timestamp is not None and timestamp < prev_timestamp:

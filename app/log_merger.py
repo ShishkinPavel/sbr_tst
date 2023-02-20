@@ -31,7 +31,7 @@ def merge_files(first: str, second: str, target: str):
         second, "r", encoding="utf-8"
     ) as f2, open(target, "w", encoding="utf-8") as f_out:
 
-        # Define variables for tracking the current line and datetime
+        # Define variables for tracking the datetime
         current_datetime = None
 
         # Iterate through both files simultaneously
